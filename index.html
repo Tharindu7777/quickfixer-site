@@ -5,8 +5,8 @@
 
 <style>
 body{
-background: linear-gradient(135deg,#020617,#0f172a);
-font-family: Arial;
+background:linear-gradient(135deg,#020617,#0f172a);
+font-family:Arial;
 color:white;
 text-align:center;
 padding:40px;
@@ -14,7 +14,7 @@ padding:40px;
 
 h1{
 font-size:55px;
-background: linear-gradient(90deg,#22c55e,#06b6d4,#a855f7);
+background:linear-gradient(90deg,#22c55e,#06b6d4,#a855f7);
 -webkit-background-clip:text;
 color:transparent;
 }
@@ -47,6 +47,11 @@ font-size:17px;
 margin-top:12px;
 cursor:pointer;
 }
+
+#result{
+margin-top:20px;
+color:#22c55e;
+}
 </style>
 </head>
 
@@ -58,12 +63,28 @@ cursor:pointer;
 
 <h2>AI Rewrite Tool</h2>
 
-<textarea placeholder="Paste your text here..."></textarea>
+<textarea id="input" placeholder="Paste your text here..."></textarea>
 <br>
 
-<button>Rewrite Text</button>
+<button onclick="rewrite()">Rewrite Text</button>
+
+<div id="result"></div>
 
 </div>
+
+<script>
+function rewrite(){
+let text=document.getElementById("input").value;
+
+if(text.length<3){
+document.getElementById("result").innerHTML="Enter more text";
+return;
+}
+
+document.getElementById("result").innerHTML=
+"✨ Rewritten Version:<br>"+text.split("").reverse().join("");
+}
+</script>
 
 </body>
 </html>
